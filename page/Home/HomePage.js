@@ -8,34 +8,114 @@ var {width,height} = Dimensions.get('window');
 type Props = {};
 
 export default class HomePage extends Component<Props>{
-	static navigationOptions = {
-	        tabBarLabel: '首页',
-	        tabBarIcon: ({focused}) => {
-	            if (focused) {
-	                return (
-	                    <Image style={styles.tabBarIcon} source={require('../../img/icons/home_active.png')}/>
-	                );
-	            }
-	            return (
-	                <Image style={styles.tabBarIcon} source={require('../../img/icons/home.png')}/>
-	            );
-	        },
-    };
 
-	render(){
-		return (
-			<View>
-				<Text>HomePage</Text>
-			</View>
-		)
-	}
+
+    _keyExtractor = (item, index) => item.id;
+    
+    constructor(props) {
+    	super(props);
+    	this.state = {
+    		data: [],
+    		loaded: false,
+    	};
+    	this.fetchData = this.fetchData.bind(this);
+    }
+    componentDidMount() {
+    	this.fetchData();
+    }
+    fetchData() {
+    	fetch(REQUEST_URL)
+    		.then((response) => response.json())
+    		.then((responseData) => {
+    			console.log(responseData);
+    			this.setState({
+    				data: this.state.data.concat(responseData.subjects),
+    				loaded: true,
+    			});
+    		});
+    }
+    render() {
+    	if (!this.state.loaded) {
+    		return this.renderLoadingView();
+    	}
+
+    	return (
+    		<ScrollView style={styles.bigContainer}>
+    			<View style={styles.topContainer}>
+    		        <Swiper style={styles.wrapper}
+    		          onMomentumScrollEnd={(e, state, context) => console.log('index:'+state.index)}
+    		          dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+    		          activeDot={<View style={{backgroundColor: '#0f0', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+    		          paginationStyle={{
+    		            bottom: 0
+    		          }} loop>
+    		          <View style={styles.slide}>
+    		            <Image resizeMode='stretch' style={styles.image} source={require('../../img/1.jpg')} />
+    		          </View>
+    		          <View style={styles.slide}>
+    		            <Image resizeMode='stretch' style={styles.image} source={require('../../img/2.jpg')} />
+    		          </View>
+    		          <View style={styles.slide}>
+    		            <Image resizeMode='stretch' style={styles.image} source={require('../../img/3.jpg')} />
+    		          </View>
+    		          <View style={styles.slide}>
+    		            <Image resizeMode='stretch' style={styles.image} source={require('../../img/4.jpg')} />
+    		          </View>
+    		        </Swiper>
+    	      	</View>
+    	      	<View style={styles.bottomContainer}>
+    		      <FlatList
+    		      	data={this.state.data}
+    		      	renderItem={this.renderMovie}
+    		      	style={styles.list}
+    		      	keyExtractor={this._keyExtractor}
+    		      />
+    	      	</View>
+    	    </ScrollView>
+    	);
+    }
+    renderLoadingView() {
+    	return (
+    		<View style={styles.loadingContainer}>
+    			<ActivityIndicator size="large" color="#0000ff" />
+    			<Text>
+    				正在加载数据……
+              </Text>
+    		</View>
+    	);
+    }
+    renderMovie({ item }) {
+    	let directors = item.directors.map(item => {
+    		return (
+    			<Text key={item.id}>{item.name}&nbsp;&nbsp;</Text>
+    		)
+    	})
+
+    	let casts = item.casts.map(item => {
+    		return (
+    			<Text key={item.id}>{item.name}&nbsp;&nbsp;</Text>
+    		)
+    	})
+
+    	return (
+    		<View style={styles.containerWrapper}>
+    			<Image
+    				source={{ uri: item.images.large }}
+    				style={styles.thumbnail}
+    			/>
+    			<View style={styles.rightContainer}>
+    				<Text style={styles.title}>片名:{item.title}</Text>
+    				<Text>评分:{item.rating.average}</Text>
+    				<Text>导演:{directors}</Text>
+    				<Text>主演:{casts}</Text>
+    				<Text style={styles.year}>年份:{item.year}</Text>
+    			</View>
+    		</View>
+    	);
+    }
 }
 
 const styles = StyleSheet.create({
-    tabBarIcon: {
-        width: 21,
-        height: 21,
-    },
     	bigContainer:{
     		flexDirection:"column",
     		flex:1
