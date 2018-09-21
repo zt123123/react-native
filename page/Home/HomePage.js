@@ -21,6 +21,7 @@ export default class HomePage extends Component {
     		loaded: false,
     	};
     	this.fetchData = this.fetchData.bind(this);
+        this.renderMovie = this.renderMovie.bind(this);
     }
     componentDidMount() {
     	this.fetchData();
@@ -104,7 +105,7 @@ export default class HomePage extends Component {
 
     	return (
             <TouchableNativeFeedback
-                    onPress={() => this.props.navigation.navigate('Details')}
+                    onPress={() => this.props.navigation.navigate('ProductDetail')}
                     background={TouchableNativeFeedback.SelectableBackground()}>
         		<View style={styles.containerWrapper}>
         			<Image
