@@ -1,22 +1,76 @@
 import React, { Component } from 'react';
-import {  View ,Text,StyleSheet,ScrollView,Image,Button} from 'react-native';
+import {  View ,Text,StyleSheet,PixelRatio,ToastAndroid,ScrollView,Image,Button} from 'react-native';
+import Video from 'react-native-video';
 
 export default class DealPage extends Component<Props>{
 	constructor(props){
 		super(props)
+		this.state={
+			paused:true
+		}
+
 		this.handleKnow=this.handleKnow.bind(this)
+		this.videoError=this.videoError.bind(this)
+		this.onBuffer=this.onBuffer.bind(this)
+		this.videoLoad=this.videoLoad.bind(this)
+		this.onEnd=this.onEnd.bind(this)
+		this.startPlay=this.startPlay.bind(this)
+	}
+	startPlay(){
+		this.setState({
+			paused:!this.state.paused
+		})
+		// ToastAndroid.show("startPlay", ToastAndroid.SHORT);
 	}
 	handleKnow(){
-		console.log(123)
+		ToastAndroid.show("handleKnow", ToastAndroid.SHORT);
 	}
+	videoError(){
+		// ToastAndroid.show("videoError", ToastAndroid.SHORT);
+	}	
+	onBuffer(){
+		// ToastAndroid.show("onBuffer", ToastAndroid.SHORT);
+	}
+	videoLoad(){
+		// ToastAndroid.show("videoLoad", ToastAndroid.SHORT);
+	}
+	onEnd(){
+		// ToastAndroid.show("onEnd", ToastAndroid.SHORT);
+	}
+
 	render(){
+		let videoSrc="https://www.jubao56.com/res/2018/06/01/17/4739530/整车保-产品介绍（终）_baofeng.mp4.mp4"
+		let poster="https://www.jubao56.com/res/2018/06/10/09/5327007/视频封面图-整车保产品介绍.jpg"
+		
+		let isShowPlayBtn=
+			this.state.paused?(
+				<Text onPress={this.startPlay} style={styles.playBtn}>
+					<Image source={require("../../img/icons/play_btn.png")} />
+				</Text>
+			):null
+
 		let videoItem=[1,2,3,4,5,6].map(item=>{
 			return (
 				<View style={styles.videoWrapper} key={item}>
 					<View style={styles.video}>
-						<Text>123456789</Text>
+						<Video
+						 	source={{ uri: videoSrc}} 
+						    ref={(ref) => {
+						        this.player = ref
+						    }}
+						    // poster={poster}
+						    // posterResizeMode="cover"
+						    resizeMode="cover"
+						    paused={this.state.paused}
+						    onBuffer={this.onBuffer}
+				            onEnd={this.onEnd}
+				            onLoad={this.videoLoad}
+				            onError={this.videoError}
+				            style={styles.backgroundVideo}
+						/>
+						{isShowPlayBtn}
 					</View>
-					<Text>物流保险市场潜力、现状、机遇与挑战</Text>
+					<Text style={styles.videoTitle}>物流保险市场潜力、现状、机遇与挑战</Text>
 					<View style={styles.detail}>
 						<View style={styles.detailItem}>
 							<Image style={styles.detailIcon} source={require('../../img/icons/timer.png')} />
@@ -37,7 +91,7 @@ export default class DealPage extends Component<Props>{
 		return (
 			<View style={styles.studyWrapper}>
 				<View style={styles.title}>
-					<Text>学习</Text>
+					<Text  style={styles.bannerTitle}>学习</Text>
 				</View>
 				<ScrollView>
 					<View style={styles.topBlock}>
@@ -74,6 +128,10 @@ const styles = StyleSheet.create({
 		fontSize:18,
 		color:"#000",
 		alignItems:"center"
+	},
+	bannerTitle:{
+		fontSize:20,
+		color:"#000",
 	},
 	topBlock:{
 		backgroundColor:"#fff",
@@ -121,14 +179,20 @@ const styles = StyleSheet.create({
 	},
 	videoWrapper:{
 		marginBottom:10,
-		paddingLeft:10,
-		paddingRight:10,
+		padding:10,
 		backgroundColor:"#fff"
+	},
+	videoTitle:{
+		marginTop:10,
+		paddingBottom:10,
+		borderBottomWidth:1 / PixelRatio.get(),
+		borderBottomColor:"#ccc",
 	},
 	listWrapper:{
 		paddingBottom:40
 	},
 	detail:{
+		marginTop:10,
 		flexDirection:"row",
 		justifyContent:"space-between"
 	},
@@ -138,12 +202,25 @@ const styles = StyleSheet.create({
 		alignItems:"center"
 	},
 	detailIcon:{
+		marginRight:5,
 		width:16,
 		height:16
 	},
 	video:{
 		justifyContent:"center",
 		alignItems:"center",
-		height:100
+		height:200
+	},
+	backgroundVideo: {
+	    position: 'absolute',
+	    top: 0,
+	    left: 0,
+	    bottom: 0,
+	    right: 0,
+	},
+	playBtn:{
+		width:50,
+		height:50,
+		textAlign:"center",
 	}
 });

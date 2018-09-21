@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  View,Text,StyleSheet,ScrollView,Image } from 'react-native';
+import {  View,Text,StyleSheet,PixelRatio,StatusBar,ScrollView,Image } from 'react-native';
 
 export default class MinePage extends Component<Props>{
 	render(){
@@ -42,6 +42,18 @@ export default class MinePage extends Component<Props>{
 					</View>
 				)
 			})
+
+let statusBar=(
+<View style={styles.container}>  
+        <StatusBar  
+         animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden  
+         hidden={true}  //是否隐藏状态栏。  
+         translucent={true}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。  
+         barStyle={'light-content'} // enum('default', 'light-content', 'dark-content')   
+        >  
+        </StatusBar>  
+      </View>
+)
 
 		return (
 			<ScrollView style={styles.wrapper}>
@@ -136,7 +148,7 @@ const styles = StyleSheet.create({
 	authentication:{
 		color:"#fff",
 		borderRadius:10,
-		borderWidth:1,
+		borderWidth:1 / PixelRatio.get(),
 		marginTop:10,
 		paddingLeft:5,
 		paddingRight:5,
@@ -167,8 +179,8 @@ const styles = StyleSheet.create({
 	},
 	myOrderLabel:{
 		padding:10,
-		borderBottomColor:"#eee",
-		borderBottomWidth:1,
+		borderBottomColor:"#ccc",
+		borderBottomWidth:1 / PixelRatio.get(),
 		flexDirection:"row",
 		justifyContent:"space-between",
 		alignItems:"center"
@@ -180,8 +192,8 @@ const styles = StyleSheet.create({
 		padding:10,
 		flexDirection:"row",
 		justifyContent:"space-between",
-		borderBottomColor:"#eee",
-		borderBottomWidth:1,
+		borderBottomColor:"#ccc",
+		borderBottomWidth:1 / PixelRatio.get(),
 	},
 	listItemIcon:{
 		flexDirection:"row",

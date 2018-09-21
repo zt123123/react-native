@@ -1365,6 +1365,10 @@ ci-info@^1.5.0:
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/ci-info/download/ci-info-1.5.1.tgz#17e8eb5de6f8b2b6038f0cbb714d410bfa9f3030"
 
+clamp@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/clamp/download/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "http://registry.npm.taobao.org/class-utils/download/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -1529,13 +1533,20 @@ cosmiconfig@^5.0.5:
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
 
-create-react-class@^15.6.3:
+create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "http://registry.npm.taobao.org/create-react-class/download/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
+
+create-react-context@0.2.2:
+  version "0.2.2"
+  resolved "http://registry.npm.taobao.org/create-react-context/download/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
+  dependencies:
+    fbjs "^0.8.0"
+    gud "^1.0.0"
 
 cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   version "5.1.0"
@@ -1588,10 +1599,6 @@ decamelize@^1.1.1:
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-
-dedent@^0.6.0:
-  version "0.6.0"
-  resolved "http://registry.npm.taobao.org/dedent/download/dedent-0.6.0.tgz#0e6da8f0ce52838ef5cec5c8f9396b0c1b64a3cb"
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -1783,6 +1790,10 @@ eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "http://registry.npm.taobao.org/eventemitter3/download/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
 
+events@1.0.2:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/events/download/events-1.0.2.tgz#75849dcfe93d10fb057c30055afdbd51d06a8e24"
+
 exec-sh@^0.2.0:
   version "0.2.2"
   resolved "http://registry.npm.taobao.org/exec-sh/download/exec-sh-0.2.2.tgz#2a5e7ffcbd7d0ba2755bdecb16e5a427dfbdec36"
@@ -1939,7 +1950,7 @@ fbjs-scripts@^0.8.1:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@0.8.17, fbjs@^0.8.9:
+fbjs@0.8.17, fbjs@^0.8.0, fbjs@^0.8.9:
   version "0.8.17"
   resolved "http://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -2169,6 +2180,10 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/growly/download/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
 
+gud@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/gud/download/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
+
 handlebars@^4.0.3:
   version "4.0.12"
   resolved "http://registry.npm.taobao.org/handlebars/download/handlebars-4.0.12.tgz#2c15c8a96d46da5e266700518ba8cb8d919d5bc5"
@@ -2240,6 +2255,10 @@ has@^1.0.1:
   resolved "http://registry.npm.taobao.org/has/download/has-1.0.3.tgz#722d7cbfc1f6aa8241f16dd814e011e1f41e8796"
   dependencies:
     function-bind "^1.1.1"
+
+hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
+  version "2.5.5"
+  resolved "http://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -2537,6 +2556,10 @@ is-utf8@^0.2.0:
 is-windows@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/is-windows/download/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
+
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "http://registry.npm.taobao.org/isarray/download/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
 
 isarray@1.0.0, isarray@~1.0.0:
   version "1.0.0"
@@ -3044,6 +3067,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+keymirror@0.1.1:
+  version "0.1.1"
+  resolved "http://registry.npm.taobao.org/keymirror/download/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
+
 kind-of@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/kind-of/download/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
@@ -3154,19 +3181,6 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   resolved "http://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
-
-lottie-ios@^2.5.0:
-  version "2.5.0"
-  resolved "http://registry.npm.taobao.org/lottie-ios/download/lottie-ios-2.5.0.tgz#55c808e785d4a6933b0c10b395530b17098b05de"
-
-lottie-react-native@^2.5.8:
-  version "2.5.8"
-  resolved "http://registry.npm.taobao.org/lottie-react-native/download/lottie-react-native-2.5.8.tgz#8599a077f4071f01d5e5215bcf50a3a8e67e7bc9"
-  dependencies:
-    invariant "^2.2.2"
-    lottie-ios "^2.5.0"
-    prop-types "^15.5.10"
-    react-native-safe-module "^1.1.0"
 
 lru-cache@^4.0.1:
   version "4.1.3"
@@ -3891,6 +3905,12 @@ path-parse@^1.0.5:
   version "1.0.6"
   resolved "http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
 
+path-to-regexp@^1.7.0:
+  version "1.7.0"
+  resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
+  dependencies:
+    isarray "0.0.1"
+
 path-type@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/path-type/download/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -4021,7 +4041,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -4047,6 +4067,13 @@ punycode@^2.1.0:
 qs@~6.5.2:
   version "6.5.2"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+
+query-string@^6.1.0:
+  version "6.1.0"
+  resolved "http://registry.npm.taobao.org/query-string/download/query-string-6.1.0.tgz#01e7d69f6a0940dac67a937d6c6325647aa4532a"
+  dependencies:
+    decode-uri-component "^0.2.0"
+    strict-uri-encode "^2.0.0"
 
 randomatic@^3.0.0:
   version "3.1.0"
@@ -4088,17 +4115,80 @@ react-is@^16.5.0:
   version "16.5.1"
   resolved "http://registry.npm.taobao.org/react-is/download/react-is-16.5.1.tgz#c6e8734fd548a22e1cef4fd0833afbeb433b85ee"
 
+react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+
 react-native-carousel@^0.11.0:
   version "0.11.0"
   resolved "http://registry.npm.taobao.org/react-native-carousel/download/react-native-carousel-0.11.0.tgz#f1b63839fb2562d7a9e7bec915ef33ac1458fbed"
   dependencies:
     react-timer-mixin "^0.13.3"
 
-react-native-safe-module@^1.1.0:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/react-native-safe-module/download/react-native-safe-module-1.2.0.tgz#a23824ca24edc2901913694a76646475113d570d"
+react-native-dismiss-keyboard@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/react-native-dismiss-keyboard/download/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
+
+react-native-drawer-layout-polyfill@^1.3.2:
+  version "1.3.2"
+  resolved "http://registry.npm.taobao.org/react-native-drawer-layout-polyfill/download/react-native-drawer-layout-polyfill-1.3.2.tgz#192c84d7a5a6b8a6d2be2c7daa5e4164518d0cc7"
   dependencies:
-    dedent "^0.6.0"
+    react-native-drawer-layout "1.3.2"
+
+react-native-drawer-layout@1.3.2:
+  version "1.3.2"
+  resolved "http://registry.npm.taobao.org/react-native-drawer-layout/download/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
+  dependencies:
+    react-native-dismiss-keyboard "1.0.0"
+
+react-native-safe-area-view@^0.10.0:
+  version "0.10.0"
+  resolved "http://registry.npm.taobao.org/react-native-safe-area-view/download/react-native-safe-area-view-0.10.0.tgz#e8e9228d22698c0f82ad1202d24a4e4977260489"
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
+react-native-screens@^1.0.0-alpha.10:
+  version "1.0.0-alpha.12"
+  resolved "http://registry.npm.taobao.org/react-native-screens/download/react-native-screens-1.0.0-alpha.12.tgz#5953c39c9dbfbe324610005e07d85a416081c48c"
+
+react-native-scrollable-tab-view@happypancake/react-native-scrollable-tab-view#master:
+  version "0.8.0"
+  resolved "https://codeload.github.com/happypancake/react-native-scrollable-tab-view/tar.gz/2419c25a03f0fb346af8ce2c39fca869f259e716"
+  dependencies:
+    create-react-class "^15.6.2"
+    prop-types "^15.6.0"
+    react-timer-mixin "^0.13.3"
+
+react-native-swiper@^1.5.13:
+  version "1.5.13"
+  resolved "http://registry.npm.taobao.org/react-native-swiper/download/react-native-swiper-1.5.13.tgz#fa695cd4ab77b9a9df2d2bfee38ea7274dd07a2e"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-tab-view@^0.0.77:
+  version "0.0.77"
+  resolved "http://registry.npm.taobao.org/react-native-tab-view/download/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
+  dependencies:
+    prop-types "^15.6.0"
+
+react-native-tab-view@^1.0.0:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/react-native-tab-view/download/react-native-tab-view-1.0.2.tgz#66e0bc6d38a227ed2b212e3a256b7902f6ce02ed"
+  dependencies:
+    prop-types "^15.6.1"
+
+react-native-video@^3.2.1:
+  version "3.2.1"
+  resolved "http://registry.npm.taobao.org/react-native-video/download/react-native-video-3.2.1.tgz#7ba3cbdfc5c747b5b00452811e98193824b16ce3"
+  dependencies:
+    keymirror "0.1.1"
+    prop-types "^15.5.10"
+
+react-native-wechat@^1.9.10:
+  version "1.9.10"
+  resolved "http://registry.npm.taobao.org/react-native-wechat/download/react-native-wechat-1.9.10.tgz#e9e26aba60ecf17d878a17047136cb8d223056bb"
+  dependencies:
+    events "1.0.2"
 
 react-native@0.57.0:
   version "0.57.0"
@@ -4155,6 +4245,49 @@ react-native@0.57.0:
     xcode "^0.9.1"
     xmldoc "^0.4.0"
     yargs "^9.0.0"
+
+react-navigation-deprecated-tab-navigator@1.3.0:
+  version "1.3.0"
+  resolved "http://registry.npm.taobao.org/react-navigation-deprecated-tab-navigator/download/react-navigation-deprecated-tab-navigator-1.3.0.tgz#015dcae1e977b984ca7e99245261c15439026bb7"
+  dependencies:
+    react-native-tab-view "^0.0.77"
+
+react-navigation-drawer@0.5.0:
+  version "0.5.0"
+  resolved "http://registry.npm.taobao.org/react-navigation-drawer/download/react-navigation-drawer-0.5.0.tgz#d91b6a6ec65c34ba78c00f814b1e6508922cc9ec"
+  dependencies:
+    react-native-drawer-layout-polyfill "^1.3.2"
+
+react-navigation-stack@0.5.1:
+  version "0.5.1"
+  resolved "http://registry.npm.taobao.org/react-navigation-stack/download/react-navigation-stack-0.5.1.tgz#acc3c84c7b5209c7d89380d7f4576f17624f683c"
+  dependencies:
+    react-native-screens "^1.0.0-alpha.10"
+
+react-navigation-tabs@0.7.0:
+  version "0.7.0"
+  resolved "http://registry.npm.taobao.org/react-navigation-tabs/download/react-navigation-tabs-0.7.0.tgz#c89d41e501043f7fdb38550de85814452c3e6104"
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.6.1"
+    react-lifecycles-compat "^3.0.4"
+    react-native-tab-view "^1.0.0"
+
+react-navigation@^2.14.2:
+  version "2.14.2"
+  resolved "http://registry.npm.taobao.org/react-navigation/download/react-navigation-2.14.2.tgz#e3c933b15efdc6bcb1e9b014aeacfb2a08997d5b"
+  dependencies:
+    clamp "^1.0.1"
+    create-react-context "0.2.2"
+    hoist-non-react-statics "^2.2.0"
+    path-to-regexp "^1.7.0"
+    query-string "^6.1.0"
+    react-lifecycles-compat "^3"
+    react-native-safe-area-view "^0.10.0"
+    react-navigation-deprecated-tab-navigator "1.3.0"
+    react-navigation-drawer "0.5.0"
+    react-navigation-stack "0.5.1"
+    react-navigation-tabs "0.7.0"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -4726,6 +4859,10 @@ stealthy-require@^1.1.0:
 stream-buffers@~2.2.0:
   version "2.2.0"
   resolved "http://registry.npm.taobao.org/stream-buffers/download/stream-buffers-2.2.0.tgz#91d5f5130d1cef96dcfa7f726945188741d09ee4"
+
+strict-uri-encode@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/strict-uri-encode/download/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
 
 string-length@^2.0.0:
   version "2.0.0"

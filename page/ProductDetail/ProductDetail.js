@@ -2,21 +2,25 @@ import React, { Component } from 'react';
 import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import WebViewComponent from "../Webview/webview"
 
-export default class TaskPage extends Component<Props>{
+export default class ProductDetail extends Component {
+	constructor(props) {
+		super(props);
+	}
 	render(){
 		return (
 			<View style={{flex:1}}>
-				<View style={styles.title}>
+				{/**<View style={styles.title}>
 					<Text style={styles.bannerTitle}>产品中心</Text>
-				</View>
+				</View>**/}
 				<ScrollableTabView
 				    initialPage={0}
 				    tabBarBackgroundColor="#fff"
 				    tabBarActiveTextColor="#1296db"
 				    tabBarTextStyle={{fontSize: 12}}
 				    renderTabBar={() => (
-				    	<ScrollableTabBar 
+				    	<DefaultTabBar 
 				    		style={{
 				    			borderWidth:0,
 				    			paddingLeft:10
@@ -30,24 +34,20 @@ export default class TaskPage extends Component<Props>{
 				    		}} />
 				    	)}
 				 >
-				    <View tabLabel='货运险'>
-				    	<Text>货运险</Text>
+				    <View style={{flex:1}} tabLabel='了解产品'>
+				    	<WebViewComponent />
 			    	</View>
 
-				    <View tabLabel='人员险'>
-				    	<Text>人员险</Text>
+				    <View tabLabel='营销软文'>
+				    	<Text>营销软文</Text>
 			    	</View>
 
-				    <View tabLabel='财产险'>
-				    	<Text>财产险</Text>
+				    <View tabLabel='朋友圈助手'>
+				    	<Text>朋友圈助手</Text>
 			    	</View>
 
-				    <View tabLabel='健康险'>
-				    	<Text>健康险</Text>
-			    	</View>
-
-				    <View tabLabel='责任险'>
-				    	<Text>责任险</Text>
+				    <View tabLabel='培训视频'>
+				    	<Text>培训视频</Text>
 			    	</View>
 				</ScrollableTabView>
 		  	</View>

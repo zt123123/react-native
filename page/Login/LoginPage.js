@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {  View,Text,StyleSheet,Image,TextInput,Button,Alert  } from 'react-native';
+import {  View,Text,StyleSheet,Image,TextInput,Alert  } from 'react-native';
+import { Akira,Jiro,Hoshi   } from 'react-native-textinput-effects';
+import Button from 'react-native-button';
 
 export default class LoginPage extends Component<Props>{
 	constructor(props) {
@@ -20,6 +22,13 @@ export default class LoginPage extends Component<Props>{
 		Alert.alert("登陆")	
 	}
 	render(){
+		const hoshiInput = (
+		  <Hoshi
+		    label={'请输入手机号'}
+            maskColor={'#F9F7F6'}
+            borderColor={'#7ac1ba'}
+		  />
+		);
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
@@ -31,36 +40,47 @@ export default class LoginPage extends Component<Props>{
 						<Text style={styles.label}>Login</Text>
 						<Text style={styles.codeLabel}>验证码登陆</Text>
 					</View>
+						
 					<View style={styles.login}>
-						<TextInput 
+						{/**<TextInput 
 							placeholder="请输入手机号"
 						    placeholderTextColor="#ccc" 
 							style={styles.username}
 					        onChangeText={(text) => this.setState({text})}
 					        value={this.state.text}
-				        />
+				        />**/}
+				        {hoshiInput}
 				        <View style={styles.codeWrapper}>
-			        		<TextInput  
+			        		{/**<TextInput  
 			        			placeholder="输入验证码"
 			        		    placeholderTextColor="#ccc" 
 				        		style={styles.code}
 				                onChangeText={(text) => this.setState({text})}
 				                value={this.state.text}
-			                />
-							<Button
+			                />**/}
+			                {hoshiInput}
+							{/**<Button
 							  onPress={this.getCode}
 							  title="获取验证码"
 							  color="#1296db"
 							  accessibilityLabel="获取验证码"
-							/>
+							/>**/}
 				        </View>
 					</View>
-			        <Button
-			          onPress={this.login}
-			          title="登陆"
-			          color="#1296db"
-			          accessibilityLabel="登陆"
-			        />
+			      	<Button
+			      	    containerStyle={{
+			      	    	padding:10, 
+			      	    	height:45, 
+			      	    	overflow:'hidden',
+							borderRadius:4,
+							elevation: 4,
+							backgroundColor: '#1296db'
+			      	  	}}
+			      	    disabledContainerStyle={{backgroundColor: 'grey'}}
+			      	    style={{fontSize: 20, color: '#fff'}}
+			      	    onPress={this.login}>
+			      	    登陆
+			      	  </Button>
 				</View>
 
 				<View style={styles.loginTip}>
@@ -101,7 +121,7 @@ const styles = StyleSheet.create({
 		alignItems:"center",
 	},
 	codeWrapper:{
-		flexDirection:"row",
+		// flexDirection:"row",
 		marginTop:20,
 		marginBottom:20,
 	},

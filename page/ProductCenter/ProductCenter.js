@@ -3,13 +3,16 @@ import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
-export default class TaskPage extends Component<Props>{
+export default class ProductDetail extends Component {
+	constructor(props) {
+		super(props);
+	}
 	render(){
 		return (
 			<View style={{flex:1}}>
-				<View style={styles.title}>
+				{/**<View style={styles.title}>
 					<Text style={styles.bannerTitle}>产品中心</Text>
-				</View>
+				</View>**/}
 				<ScrollableTabView
 				    initialPage={0}
 				    tabBarBackgroundColor="#fff"
