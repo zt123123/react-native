@@ -2,14 +2,55 @@ import React, { Component } from 'react';
 
 import { StyleSheet, Image,Alert,Text } from 'react-native';
 
+import {
+    createStackNavigator,
+    createTabNavigator,
+    createBottomTabNavigator,
+} from 'react-navigation';
+
 import HomePage from './page/Home/HomePage';
 import EarnPage from './page/Earn/EarnPage';
 import MinePage from './page/Mine/MinePage';
 import StudyPage from './page/Study/StudyPage';
 import LoginPage from './page/Login/LoginPage';
-import {ProductDetail} from './page/Webview/webview.js';
+import ProductCenter from './page/ProductCenter/ProductCenter';
+import ProductDetail from './page/ProductDetail/ProductDetail';
 
-export const navItem = {
+import NavigationBar from './components/NavigationBar';
+
+const HomeTab = createStackNavigator({
+    HomePage: {
+        screen: HomePage,
+        path: '/',
+        navigationOptions: () => ({
+            headerTitle:<NavigationBar />
+        }),
+
+    },
+    ProductDetail:{
+        screen: ProductDetail,
+        path: '/',
+        navigationOptions: ({ navigation }) => ({
+            title: navigation.state.params.title,
+        }),
+    }
+});
+
+const StacksInTabs = createTabNavigator({
+    HomePage: {
+        screen: HomeTab,
+        navigationOptions: {
+            tabBarLabel: '首页',
+            tabBarIcon: ({ focused }) => {
+                let icon = focused ? require("./img/icons/home_active.png") : require("./img/icons/home.png")
+                return ( <
+                    Image style = { styles.tabBarIcon } source = { icon }
+                    />
+                );
+            },
+        }
+    },
+    /**
     LoginPage: {
         screen: LoginPage,
         navigationOptions: {
@@ -22,7 +63,7 @@ export const navItem = {
                 );
             },
         }
-    },
+    },**/
     EarnPage: {
         screen: EarnPage,
         navigationOptions: {
@@ -61,26 +102,11 @@ export const navItem = {
                 );
             },
         }
-    },
-    HomePage: {
-        screen: HomePage,
-        navigationOptions: {
-            tabBarLabel: '首页',
-            tabBarIcon: ({ focused }) => {
-                let icon = focused ? require("./img/icons/home_active.png") : require("./img/icons/home.png")
-                return ( <
-                    Image style = { styles.tabBarIcon } source = { icon }
-                    />
-                );
-            },
-        }
-    },
-}
-
-export const navIcon = {
-    animationEnabled: true, // 切换页面时不显示动画
-    tabBarPosition: 'bottom', // 显示在底端，android 默认是显示在页面顶端的
-    swipeEnabled: true, // 禁止左右滑动
+    }
+}, {
+    tabBarPosition: 'bottom',
+    swipeEnabled: true,
+    animationEnabled: true,
     backBehavior: 'none',
     tabBarOptions: {
         activeTintColor: '#1296db',
@@ -103,47 +129,8 @@ export const navIcon = {
         },
         indicatorStyle: { height: 0 },
     }
-}
+});
 
-export const header = {
-    initialRouteName: 'HomePage',
-    mode: 'card',
-    headerMode: 'screen',
-    navigationOptions: ({ navigation, screenProps }) => {
-        return {
-                headerTintColor: '#000',
-                headerTitleStyle: {
-                    flex:1,
-                    justifyContent:"center",
-                    alignItems:"center",
-                    textAlign:"center"
-                },
-                headerStyle: {
-
-                },
-            headerLeft: (
-                <Text 
-                    style={{
-                    flex:1,
-                    justifyContent:"center",
-                    alignItems:"center",
-                    textAlign:"center"
-                }}
-                    onPress = { () => { navigation.goBack() } }>
-                    <Image style={styles.tabBarIcon} source = { require('./img/icons/arrow_r.png') } />
-                </Text>
-                ),
-            headerRight: (
-                <Text 
-                    onPress = { () => {
-                        Alert.alert('Alert Title', 'alertMessage') 
-                    }}>
-                    <Image style={styles.tabBarIcon} source = { require('./img/icons/arrow_r.png') } />
-                </Text>
-                )
-        }
-    }
-}
 
 const styles = StyleSheet.create({
     tabBarIcon: {
@@ -151,4 +138,10 @@ const styles = StyleSheet.create({
         height: 21,
     }
 })
+
+const createRouter=()=>{
+    return StacksInTabs
+}
+
+export default createRouter
 

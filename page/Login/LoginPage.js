@@ -3,7 +3,7 @@ import {  View,Text,StyleSheet,Image,TextInput,Alert  } from 'react-native';
 import { Akira,Jiro,Hoshi   } from 'react-native-textinput-effects';
 import Button from 'react-native-button';
 
-export default class LoginPage extends Component<Props>{
+export default class LoginPage extends Component{
 	constructor(props) {
 	    super(props);
 	    this.state = { text: '' };

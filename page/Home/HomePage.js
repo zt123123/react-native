@@ -3,14 +3,10 @@ import { Platform, Dimensions,StyleSheet,PixelRatio,Alert,TouchableNativeFeedbac
 
 import Swiper from 'react-native-swiper';
 
-var REQUEST_URL = "http://192.168.0.192:3000";
+var REQUEST_URL = "http://192.168.1.6:3000";
 var {width,height} = Dimensions.get('window');
 
 export default class HomePage extends Component {
-
-    static navigationOptions = {
-      title: '产品中心',
-    };
 
     _keyExtractor = (item, index) => item.id;
     
@@ -105,7 +101,7 @@ export default class HomePage extends Component {
 
     	return (
             <TouchableNativeFeedback
-                    onPress={() => this.props.navigation.navigate('ProductDetail')}
+                    onPress={() => this.props.navigation.navigate('ProductDetail',{title:item.title})}
                     background={TouchableNativeFeedback.SelectableBackground()}>
         		<View style={styles.containerWrapper}>
         			<Image
@@ -163,7 +159,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: "center",
         alignItems: "center",
-        flex: 1
+        flex: 1,
+        backgroundColor:"red",
+        zIndex:9999,
     },
     containerWrapper: {
         padding: 10,

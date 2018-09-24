@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {  View,Text,StyleSheet,PixelRatio,StatusBar,ScrollView,Image } from 'react-native';
 
-export default class MinePage extends Component<Props>{
+export default class MinePage extends Component{
 	render(){
 
 		let list=[

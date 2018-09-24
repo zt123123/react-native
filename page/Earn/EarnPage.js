@@ -3,7 +3,7 @@ import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
-export default class TaskPage extends Component<Props>{
+export default class TaskPage extends Component{
 	render(){
 		return (
 			<View style={{flex:1}}>

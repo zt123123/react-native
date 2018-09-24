@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {  View ,Text,StyleSheet,PixelRatio,ToastAndroid,ScrollView,Image,Button} from 'react-native';
 import Video from 'react-native-video';
 
-export default class DealPage extends Component<Props>{
+export default class DealPage extends Component{
 	constructor(props){
 		super(props)
 		this.state={
