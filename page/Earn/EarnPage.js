@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
+import {AsyncStorage, View ,Alert,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import StorageUtils from "../../utils/storage"
 
 export default class TaskPage extends Component{
+	static navigationOptions = {
+	   title: 'Home',
+	   tabBarOnPress:()=>{
+			console.log(this);
+	   },
+	 };
+
 	render(){
 		return (
 			<View style={{flex:1}}>

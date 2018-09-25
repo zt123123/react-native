@@ -3,7 +3,7 @@ import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
-export default class ProductDetail extends Component {
+export default class ProductCenter extends Component {
 	constructor(props) {
 		super(props);
 	}

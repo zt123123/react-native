@@ -25,7 +25,13 @@ const HomeTab = createStackNavigator({
         navigationOptions: () => ({
             headerTitle:<NavigationBar />
         }),
-
+    },
+    LoginPage:{
+        screen: LoginPage,
+        path: '/',
+        navigationOptions: () => ({
+            title: "登陆注册",
+        }),
     },
     ProductDetail:{
         screen: ProductDetail,
@@ -50,20 +56,6 @@ const StacksInTabs = createTabNavigator({
             },
         }
     },
-    /**
-    LoginPage: {
-        screen: LoginPage,
-        navigationOptions: {
-            tabBarLabel: '登陆',
-            tabBarIcon: ({ focused }) => {
-                let icon = focused ? require("./img/icons/home_active.png") : require("./img/icons/home.png")
-                return ( <
-                    Image style = { styles.tabBarIcon } source = { icon }
-                    />
-                );
-            },
-        }
-    },**/
     EarnPage: {
         screen: EarnPage,
         navigationOptions: {

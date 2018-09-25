@@ -3,8 +3,10 @@ import { Platform, Dimensions,StyleSheet,PixelRatio,Alert,TouchableNativeFeedbac
 
 import Swiper from 'react-native-swiper';
 
-var REQUEST_URL = "http://192.168.1.6:3000";
+var REQUEST_URL = "http://39.108.170.7:3000/";
 var {width,height} = Dimensions.get('window');
+
+import {cmnProductList} from "../../utils/ajax"
 
 export default class HomePage extends Component {
 
@@ -20,13 +22,17 @@ export default class HomePage extends Component {
         this.renderMovie = this.renderMovie.bind(this);
     }
     componentDidMount() {
-    	this.fetchData();
+        this.getData()
+    	// this.fetchData();
+    }
+    async getData(){
+        let data=await cmnProductList();
+        console.log(data.rows.map(item=>{return item.index_sort}));
     }
     fetchData() {
     	fetch(REQUEST_URL)
     		.then((response) => response.json())
     		.then((responseData) => {
-    			console.log(responseData);
     			this.setState({
     				data: this.state.data.concat(responseData.subjects),
     				loaded: true,
@@ -44,7 +50,6 @@ export default class HomePage extends Component {
                     <View style={styles.topContainer}>
                         <Swiper style={styles.wrapper}
                           autoplay={true}
-                          onMomentumScrollEnd={(e, state, context) => console.log('index:'+state.index)}
                           dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
                           activeDot={<View style={{backgroundColor: '#0f0', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
                           paginationStyle={{
@@ -159,9 +164,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: "center",
         alignItems: "center",
-        flex: 1,
-        backgroundColor:"red",
-        zIndex:9999,
+        flex: 1
     },
     containerWrapper: {
         padding: 10,
