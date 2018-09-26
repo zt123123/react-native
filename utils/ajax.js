@@ -33,3 +33,4 @@ export default class HttpUtils{
 }
 
 export const cmnProductList=(params)=>HttpUtils.get(api.home.productList,params)
+export const cmnBannerList=(params)=>HttpUtils.get(api.home.bannerList,params)

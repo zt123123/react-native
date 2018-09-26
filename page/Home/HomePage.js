@@ -6,45 +6,48 @@ import Swiper from 'react-native-swiper';
 var REQUEST_URL = "http://39.108.170.7:3000/";
 var {width,height} = Dimensions.get('window');
 
-import {cmnProductList} from "../../utils/ajax"
+import {cmnProductList,cmnBannerList} from "../../utils/ajax"
 
 export default class HomePage extends Component {
 
-    _keyExtractor = (item, index) => item.id;
+    _keyExtractor = (item, index) => item.id+"";
     
     constructor(props) {
-    	super(props);
-    	this.state = {
-    		data: [],
-    		loaded: false,
-    	};
-    	this.fetchData = this.fetchData.bind(this);
+        super(props);
+        this.state = {
+            data: [],
+            bannerData:[],
+            loaded: false,
+        };
         this.renderMovie = this.renderMovie.bind(this);
     }
     componentDidMount() {
-        this.getData()
-    	// this.fetchData();
+        this.getProductList()
+        this.getBannerList()
     }
-    async getData(){
+    async getProductList(){
         let data=await cmnProductList();
-        console.log(data.rows.map(item=>{return item.index_sort}));
+        let sortArr=data.rows.sort((a,b)=>a.index_sort-b.index_sort)
+        let filterArr=sortArr.filter(item=>item.index_sort>0);
+        console.log(filterArr);
+        this.setState({
+            data:this.state.data.concat(filterArr),
+            loaded: true,
+        })
     }
-    fetchData() {
-    	fetch(REQUEST_URL)
-    		.then((response) => response.json())
-    		.then((responseData) => {
-    			this.setState({
-    				data: this.state.data.concat(responseData.subjects),
-    				loaded: true,
-    			});
-    		});
+    async getBannerList(){
+        let data=await cmnBannerList();
+        console.log(data);
+        this.setState({
+           bannerData:data.rows.slice(0,3),
+       }) 
     }
     render() {
-    	if (!this.state.loaded) {
-    		return this.renderLoadingView();
-    	}
+        if (!this.state.loaded) {
+            return this.renderLoadingView();
+        }
 
-    	return (
+        return (
             <View style={{flex:1}}>
                 <ScrollView style={styles.bigContainer}>
                     <View style={styles.topContainer}>
@@ -58,15 +61,6 @@ export default class HomePage extends Component {
                           <View style={styles.slide}>
                             <Image resizeMode='stretch' style={styles.image} source={require('../../img/1.jpg')} />
                           </View>
-                          <View style={styles.slide}>
-                            <Image resizeMode='stretch' style={styles.image} source={require('../../img/2.jpg')} />
-                          </View>
-                          <View style={styles.slide}>
-                            <Image resizeMode='stretch' style={styles.image} source={require('../../img/3.jpg')} />
-                          </View>
-                          <View style={styles.slide}>
-                            <Image resizeMode='stretch' style={styles.image} source={require('../../img/4.jpg')} />
-                          </View>
                         </Swiper>
                     </View>
                     <View style={styles.bottomContainer}>
@@ -79,50 +73,37 @@ export default class HomePage extends Component {
                     </View>
                 </ScrollView>
             </View>
-    	);
+        );
     }
     renderLoadingView() {
-    	return (
-    		<View style={styles.loadingContainer}>
-    			<ActivityIndicator size="large" color="#0000ff" />
-    			<Text>
-    				正在加载数据……
+        return (
+            <View style={styles.loadingContainer}>
+                <ActivityIndicator size="large" color="#0000ff" />
+                <Text>
+                    正在加载数据……
               </Text>
-    		</View>
-    	);
+            </View>
+        );
     }
     renderMovie({ item }) {
-    	let directors = item.directors.map(item => {
-    		return (
-    			<Text key={item.id}>{item.name}&nbsp;&nbsp;</Text>
-    		)
-    	})
-
-    	let casts = item.casts.map(item => {
-    		return (
-    			<Text key={item.id}>{item.name}&nbsp;&nbsp;</Text>
-    		)
-    	})
-
-    	return (
+        return (
             <TouchableNativeFeedback
-                    onPress={() => this.props.navigation.navigate('ProductDetail',{title:item.title})}
+                    onPress={() => this.props.navigation.navigate('ProductDetail',{title:item.product_name})}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-        		<View style={styles.containerWrapper}>
-        			<Image
-        				source={{ uri: item.images.large }}
-        				style={styles.thumbnail}
-        			/>
-        			<View style={styles.rightContainer}>
-        				<Text style={styles.movieTitle}>片名:{item.title}</Text>
-        				<Text>评分:{item.rating.average}</Text>
-        				<Text>导演:{directors}</Text>
-        				<Text>主演:{casts}</Text>
-        				<Text style={styles.year}>年份:{item.year}</Text>
-        			</View>
-        		</View>
+                <View style={styles.containerWrapper}>
+                    <Image
+                        source={{ uri: item.category_image_url }}
+                        style={styles.thumbnail}
+                    />
+                    <View style={styles.rightContainer}>
+                        <Text style={styles.movieTitle}>{item.product_name}</Text>
+                        <Text>{item.description}</Text>
+                        <Text>{item.company}</Text>
+                        <Text>{item.min_premium}</Text>
+                    </View>
+                </View>
             </TouchableNativeFeedback>
-    	);
+        );
     }
 }
 
@@ -177,7 +158,7 @@ const styles = StyleSheet.create({
     },
     thumbnail: {
         width: 100,
-        height: 128
+        height: 100
     },
     rightContainer: {
         marginLeft: 10,
