@@ -11,7 +11,7 @@ export default{
 		productList:API_HOST+"/v1/cmn/service/product/list"
 	},
 	earn:{
-
+		categoryList:API_HOST+"/v1/cmn/service/category/list"
 	},
 	study:{
 

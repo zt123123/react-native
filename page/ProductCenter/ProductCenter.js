@@ -10,9 +10,6 @@ export default class ProductCenter extends Component {
 	render(){
 		return (
 			<View style={{flex:1}}>
-				{/**<View style={styles.title}>
-					<Text style={styles.bannerTitle}>产品中心</Text>
-				</View>**/}
 				<ScrollableTabView
 				    initialPage={0}
 				    tabBarBackgroundColor="#fff"

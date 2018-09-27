@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import {  View ,Text,StyleSheet,Image,Button,ToastAndroid} from 'react-native';
+import {  View ,Text,StyleSheet,Image,Button,WebView,ToastAndroid} from 'react-native';
 import * as WeChat from 'react-native-wechat'
 import ScrollableTabView, {DefaultTabBar,ScrollableTabBar } from 'react-native-scrollable-tab-view';
-import WebViewComponent from "../Webview/webview"
+// import WebViewComponent from "../Webview/webview"
 
 export default class ProductDetail extends Component {
 	constructor(props) {
 		super(props);
 	}
 	render(){
+		const { navigation } = this.props;
+		const url = navigation.getParam('url', '2');
 		return (
 			<View style={{flex:1}}>
-				{/**<View style={styles.title}>
-					<Text style={styles.bannerTitle}>产品中心</Text>
-				</View>**/}
 				<ScrollableTabView
 				    initialPage={0}
 				    tabBarBackgroundColor="#fff"
@@ -35,7 +34,9 @@ export default class ProductDetail extends Component {
 				    	)}
 				 >
 				    <View style={{flex:1}} tabLabel='了解产品'>
-				    	<WebViewComponent />
+						<WebView
+							source={{uri: url}}
+						/>
 			    	</View>
 
 				    <View tabLabel='营销软文'>
