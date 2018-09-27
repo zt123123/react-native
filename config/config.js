@@ -14,12 +14,14 @@ export default{
 		categoryList:API_HOST+"/v1/cmn/service/category/list"
 	},
 	study:{
-
+		videoList:API_HOST+"/v1/cmn/biz/video/list"
 	},
 	mine:{
-
+		messageList:API_HOST+"/v1/cmn/biz/message/list",
+		statisticsAll:API_HOST+"/v1/cmn/biz/statistics/all",
+		channelInfo:API_HOST+"/v1/cmn/biz/channel/info"
 	},
 	login:{
-		login:"/v1/cmn/biz/channel/login"
+		login:API_HOST+"/v1/cmn/biz/channel/login"
 	}
 }

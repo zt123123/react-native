@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import {  View ,Text,StyleSheet,PixelRatio,ToastAndroid,ScrollView,Image,Button} from 'react-native';
 import VideoItem from "../../components/Study/VideoItem"
-
+import {videoList} from "../../utils/ajax"
 
 export default class StudyPage extends Component{
 	constructor(props){
 		super(props)
+		this.state={
+			data:[]
+		}
+	}
+
+	componentDidMount() {
+	    this.getVideoList()
+	}
+
+	async getVideoList(){
+	    let data=await videoList();
+	    this.setState({
+	    	data:data.rows
+	    })
 	}
 
 	render(){
-
+		let videoList=this.state.data.map(item=>{
+			return (
+				<VideoItem key={item.id} data={item} />
+			)
+		})
 		return (
 			<View style={styles.studyWrapper}>
 				<View style={styles.title}>
@@ -32,7 +50,7 @@ export default class StudyPage extends Component{
 					</View>
 
 					<View style={styles.listWrapper}>
-						<VideoItem />
+						{videoList}
 					</View>
 				</ScrollView>
 			</View>

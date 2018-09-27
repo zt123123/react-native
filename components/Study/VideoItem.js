@@ -3,6 +3,7 @@ import {  View ,Text,StyleSheet,PixelRatio,ToastAndroid,ScrollView,Image,Button}
 import Video from 'react-native-video';
 
 import HttpUtils from '../../utils/ajax'
+import {timeFormate} from '../../utils/func'
 
 export default class VideoItem extends Component{
 	constructor(props){
@@ -58,48 +59,50 @@ export default class VideoItem extends Component{
 			):null)
 		}
 			
+		if(!this.props.data){
+			return false;
+		}
 
-		let videoItem=[1,2,3,4,5,6].map((item,index)=>{
-			return (
-				<View style={styles.videoWrapper} key={item}>
-					<View style={styles.video}>
-						<Video
-						 	source={{ uri: videoSrc}} 
-						    ref={(ref) => {
-						        this.player = ref
-						    }}
-						    // poster={poster}
-						    // posterResizeMode="cover"
-						    resizeMode="cover"
-						    paused={this.state.paused}
-						    onBuffer={this.onBuffer}
-				            onEnd={this.onEnd}
-				            onLoad={this.videoLoad}
-				            onError={this.videoError}
-				            style={styles.backgroundVideo}
-						/>
-						{isShowPlayBtn(index)}
+		let item=this.props.data
+		let formtTime= timeFormate(item.published_at)
+		formtTime = formtTime.substr(formtTime.indexOf("-")+1);
+		return (
+			<View style={styles.videoWrapper} key={item}>
+				<View style={styles.video}>
+					<Video
+					 	source={{ uri: item.video_url}} 
+					    ref={(ref) => {
+					        this.player = ref
+					    }}
+					    // poster={item.cover_image_url}
+					    // posterResizeMode="cover"
+					    resizeMode="cover"
+					    paused={this.state.paused}
+					    onBuffer={this.onBuffer}
+			            onEnd={this.onEnd}
+			            onLoad={this.videoLoad}
+			            onError={this.videoError}
+			            style={styles.backgroundVideo}
+					/>
+					{isShowPlayBtn(item.id)}
+				</View>
+				<Text style={styles.videoTitle}>{item.title}</Text>
+				<View style={styles.detail}>
+					<View style={styles.detailItem}>
+						<Image style={styles.detailIcon} source={require('../../img/icons/timer.png')} />
+						<Text>{formtTime}</Text>
 					</View>
-					<Text style={styles.videoTitle}>物流保险市场潜力、现状、机遇与挑战{index}</Text>
-					<View style={styles.detail}>
-						<View style={styles.detailItem}>
-							<Image style={styles.detailIcon} source={require('../../img/icons/timer.png')} />
-							<Text>2018-08-24</Text>
-						</View>
-						<View style={styles.detailItem}>
-							<Image style={styles.detailIcon} source={require('../../img/icons/view.png')} />
-							<Text>2716人学过</Text>
-						</View>
-						<View style={styles.detailItem}>
-							<Image style={styles.detailIcon} source={require('../../img/icons/share.png')} />
-							<Text>分享</Text>
-						</View>
+					<View style={styles.detailItem}>
+						<Image style={styles.detailIcon} source={require('../../img/icons/view.png')} />
+						<Text>{item.view_count+item.virtual_count}人学过</Text>
+					</View>
+					<View style={styles.detailItem}>
+						<Image style={styles.detailIcon} source={require('../../img/icons/share.png')} />
+						<Text>分享</Text>
 					</View>
 				</View>
-			)
-		})
-
-		return videoItem
+			</View>
+		)
 	}
 }
 

@@ -62,7 +62,7 @@ export default class EarnPage extends Component{
 		let productList=this.state.productList.map(item=>{
 			let pro=item.products.map(items=>{
 				return  (
-						<View>
+						<View key={items.id}>
 							<ProductItem 
 								navigation={navigation}
 								key={items.id} 
