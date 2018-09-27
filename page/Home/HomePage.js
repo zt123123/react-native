@@ -31,7 +31,7 @@ export default class HomePage extends Component {
     }
     componentDidMount() {
         this.getProductList()
-        // this.getBannerList()
+        this.getBannerList()
     }
     _onRefresh(){
         this.setState({refreshing: true});

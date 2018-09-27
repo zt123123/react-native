@@ -11,8 +11,8 @@ import ProductItem from "../../components/ProductItem"
 
 export default class EarnPage extends Component{
 	static navigationOptions = {
-	   title: 'Home',
-	   tabBarOnPress:()=>{
+	   tabBarOnPress:(param)=>{
+	   		console.log(param)
 	   },
 	 };
 	constructor(props){
@@ -83,6 +83,7 @@ export default class EarnPage extends Component{
 		let tabView=this.state.categoryList.map(item=>{
 			return (
 			    <ScrollView
+			    	style={styles.scrollContainer}
 					refreshControl={
 					<RefreshControl
 						refreshing={this.state.refreshing}
@@ -100,9 +101,6 @@ export default class EarnPage extends Component{
 
 		return (
 			<View style={{flex:1}}>
-				<View style={styles.title}>
-					<Text style={styles.bannerTitle}>产品中心</Text>
-				</View>
 				<ScrollableTabView
 				    initialPage={0}
 				    onChangeTab={this.onChangeTab}
@@ -140,6 +138,10 @@ const styles = StyleSheet.create({
 	bannerTitle:{
 		fontSize:20,
 		color:"#000",
+	},
+	scrollContainer:{
+		marginTop:5,
+		backgroundColor:"#fff"
 	},
 	object:{
 	    borderLeftWidth:4,

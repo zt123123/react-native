@@ -23,7 +23,11 @@ const HomeTab = createStackNavigator({
         screen: HomePage,
         path: '/',
         navigationOptions: () => ({
-            headerTitle:<NavigationBar />
+            headerTitle:<NavigationBar 
+            title="首页"
+            showLeft={true}
+            showRight={true}
+            />
         }),
     },
     LoginPage:{
@@ -42,6 +46,56 @@ const HomeTab = createStackNavigator({
     }
 });
 
+HomeTab.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+  };
+};
+
+const EarnTab=createStackNavigator({
+    EarnPage:{
+        screen: EarnPage,
+        path: '/',
+        navigationOptions: () => ({
+            headerTitle:<NavigationBar 
+            title="产品中心"
+            showLeft={false}
+            showRight={false}
+            />
+        }),
+    },
+    LoginPage:{
+        screen: LoginPage,
+        path: '/',
+        navigationOptions: () => ({
+            title: "登陆注册",
+        }),
+    },
+    ProductDetail:{
+        screen: ProductDetail,
+        path: '/',
+        navigationOptions: ({ navigation }) => ({
+            title: navigation.state.params.title,
+        }),
+    }
+})
+
+EarnTab.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+  };
+};
+
 const StacksInTabs = createTabNavigator({
     HomePage: {
         screen: HomeTab,
@@ -57,7 +111,7 @@ const StacksInTabs = createTabNavigator({
         }
     },
     EarnPage: {
-        screen: EarnPage,
+        screen: EarnTab,
         navigationOptions: {
             tabBarLabel: '去赚钱',
             tabBarIcon: ({ focused }) => {
