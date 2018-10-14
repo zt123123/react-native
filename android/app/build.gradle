@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-update')
     compile project(':react-native-wechat')
     compile project(':react-native-linear-gradient')
     compile project(':react-native-vector-icons')

@@ -57,6 +57,7 @@
 		14DB4A9F1427454A83E91311 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4809B45FB3B41B5B84F681B /* libBVLinearGradient.a */; };
 		278A0B6F6A48495C95CEDB7B /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72760F2F990D46ECBC5B9BAE /* libRCTWeChat.a */; };
 		0AC5F65A279B4A799062A19B /* RCTWeChatTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 5680908C588742F2A2C11AEA /* RCTWeChatTests.xctest */; };
+		70CF5BBC172246B98477F60A /* libRCTHotUpdate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DCF75E10524DAD8BA5F486 /* libRCTHotUpdate.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +388,8 @@
 		439D5B30434640DEAD8839A7 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; name = "RCTWeChat.xcodeproj"; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		72760F2F990D46ECBC5B9BAE /* libRCTWeChat.a */ = {isa = PBXFileReference; name = "libRCTWeChat.a"; path = "libRCTWeChat.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		5680908C588742F2A2C11AEA /* RCTWeChatTests.xctest */ = {isa = PBXFileReference; name = "RCTWeChatTests.xctest"; path = "RCTWeChatTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
+		D97A2E1EEF4B4F0EB1AD7110 /* RCTHotUpdate.xcodeproj */ = {isa = PBXFileReference; name = "RCTHotUpdate.xcodeproj"; path = "../node_modules/react-native-update/ios/RCTHotUpdate.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E9DCF75E10524DAD8BA5F486 /* libRCTHotUpdate.a */ = {isa = PBXFileReference; name = "libRCTHotUpdate.a"; path = "libRCTHotUpdate.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +423,7 @@
 				14DB4A9F1427454A83E91311 /* libBVLinearGradient.a in Frameworks */,
 				278A0B6F6A48495C95CEDB7B /* libRCTWeChat.a in Frameworks */,
 				0AC5F65A279B4A799062A19B /* RCTWeChatTests.xctest in Resources */,
+				70CF5BBC172246B98477F60A /* libRCTHotUpdate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +615,7 @@
 				16B6B72B5C034936BD85E5DA /* RNVectorIcons.xcodeproj */,
 				D9FB3D61E600493B8EBC7ACD /* BVLinearGradient.xcodeproj */,
 				439D5B30434640DEAD8839A7 /* RCTWeChat.xcodeproj */,
+				D97A2E1EEF4B4F0EB1AD7110 /* RCTHotUpdate.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1281,6 +1286,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1289,6 +1295,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Debug;
@@ -1316,6 +1323,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1324,6 +1332,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Release;
@@ -1351,6 +1360,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Debug;
@@ -1377,6 +1387,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Release;
@@ -1412,6 +1423,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1420,6 +1432,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Debug;
@@ -1455,6 +1468,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1463,6 +1477,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Release;
@@ -1497,6 +1512,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1505,6 +1521,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Debug;
@@ -1539,6 +1556,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1547,6 +1565,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-wechat\ios",
+					"$(SRCROOT)\..\node_modules\react-native-update\ios\RCTHotUpdate/**",
 				);
 			};
 			name = Release;

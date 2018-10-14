@@ -2,6 +2,8 @@
 #
 .DS_Store
 
+android/gradle/wrapper/gradle-4.4-all.zip
+
 # Xcode
 #
 build/
@@ -35,6 +37,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+.update
 
 # BUCK
 buck-out/
