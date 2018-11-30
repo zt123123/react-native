@@ -33,8 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
             new WeChatPackage(),
             new LinearGradientPackage(),
             new VectorIconsPackage(),
-            new ReactVideoPackage(),
-              new WeChatPackage()
+            new ReactVideoPackage()
       );
     }
 
